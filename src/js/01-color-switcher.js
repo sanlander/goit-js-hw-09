@@ -21,13 +21,11 @@ function changeBodyBgColor() {
 function onBtnStart(e) {
   timerId = setInterval(changeBodyBgColor, 1000);
   refs.btnStart.toggleAttribute('disabled');
-    refs.btnStop.toggleAttribute('disabled');
-    console.log(timerId);
+  refs.btnStop.toggleAttribute('disabled');
 }
 
 function onBtnStop() {
   clearInterval(timerId);
   refs.btnStart.toggleAttribute('disabled');
-    refs.btnStop.toggleAttribute('disabled');
-    console.log(timerId);
+  refs.btnStop.toggleAttribute('disabled');
 }
