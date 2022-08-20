@@ -30,8 +30,6 @@ const options = {
     console.log(selectedDates[0]);
 
     timerPeriod = Date.parse(selectedDates[0]);
-    console.log(timerPeriod);
-    console.log(Date.now());
   },
 
   onStart() {
