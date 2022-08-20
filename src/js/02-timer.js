@@ -1,3 +1,4 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import 'flatpickr/dist/themes/material_orange.css';
@@ -23,21 +24,42 @@ const options = {
 
   onClose(selectedDates) {
     if (selectedDates[0] <= Date.now()) {
-      window.alert('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future', {
+        position: 'center-top',
+        fontSize: '14px',
+        timeout: 2000,
+      });
       return;
     }
+    Notify.success('Date selected!', {
+      position: 'center-top',
+      fontSize: '14px',
+      timeout: 2000,
+    });
+
     refs.btnStart.toggleAttribute('disabled');
-    
+
     timerPeriod = Date.parse(selectedDates[0]);
   },
 
   onStart() {
+    Notify.info('Timer started!', {
+      position: 'center-top',
+      fontSize: '14px',
+      timeout: 2000,
+    });
+
     this.timerId = setInterval(() => {
       let remainingTime = timerPeriod - Date.now();
 
       const time = convertMs(remainingTime);
 
       if (Math.floor(remainingTime / 1000) < 0) {
+        Notify.info('Timer stopped!', {
+          position: 'center-top',
+          fontSize: '14px',
+          timeout: 2000,
+        });
         clearInterval(this.timerId);
         return;
       }
