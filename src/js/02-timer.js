@@ -27,8 +27,7 @@ const options = {
       return;
     }
     refs.btnStart.toggleAttribute('disabled');
-    console.log(selectedDates[0]);
-
+    
     timerPeriod = Date.parse(selectedDates[0]);
   },
 
