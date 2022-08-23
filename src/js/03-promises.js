@@ -36,16 +36,12 @@ function onClickBtnForm(e) {
     createPromise(i + 1, currentDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
-          position: 'right-top',
-          fontSize: '14px',
-          timeout: 2000,
+          timeout: 3000,
         });
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
-          position: 'right-top',
-          fontSize: '14px',
-          timeout: 2000,
+          timeout: 3000,
         });
       });
 
