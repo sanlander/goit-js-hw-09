@@ -37,11 +37,13 @@ function onClickBtnForm(e) {
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
           timeout: 3000,
+          useIcon: false,
         });
       })
       .catch(({ position, delay }) => {
         Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
           timeout: 3000,
+          useIcon: false,
         });
       });
 
